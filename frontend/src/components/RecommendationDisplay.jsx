@@ -17,8 +17,8 @@ const RecommendationDisplay = ({ recommendation, onClose }) => {
                 </button>
                 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '1rem' }}>
-                    <Sparkles style={{ color: '#c084fc' }} size={28} />
-                    <h2 style={{ fontSize: '1.5rem', fontWeight: '600', background: 'linear-gradient(to right, #818cf8, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    <Sparkles style={{ color: '#f59e0b' }} size={28} />
+                    <h2 style={{ fontSize: '1.5rem', fontWeight: '600', background: 'linear-gradient(to right, #fde047, #f59e0b)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                         AI Insights & Recommendations
                     </h2>
                 </div>
