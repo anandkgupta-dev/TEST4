@@ -12,6 +12,7 @@ const EmployeeForm = ({ fetchEmployees }) => {
     });
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -30,7 +31,7 @@ const EmployeeForm = ({ fetchEmployees }) => {
                 experience: Number(formData.experience)
             };
 
-            await axios.post('http://localhost:5000/api/employees', payload);
+            await axios.post(`${API_URL}/api/employees`, payload);
             setFormData({ name: '', email: '', department: '', skills: '', performanceScore: '', experience: '' });
             if (fetchEmployees) fetchEmployees();
         } catch (err) {

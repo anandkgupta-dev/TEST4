@@ -3,10 +3,11 @@ import { Trash2, UserCircle, Target, Award, BrainCircuit } from 'lucide-react';
 import axios from 'axios';
 
 const EmployeeList = ({ employees, fetchEmployees, onGetRecommendation }) => {
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:5000/api/employees/${id}`);
+            await axios.delete(`${API_URL}/api/employees/${id}`);
             fetchEmployees();
         } catch (err) {
             console.error('Failed to delete employee', err);

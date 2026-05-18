@@ -15,6 +15,7 @@ const Dashboard = () => {
     const [loading, setLoading] = useState(true);
     const [recommendation, setRecommendation] = useState(null);
     const [aiLoading, setAiLoading] = useState(false);
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
     useEffect(() => {
         if (!authLoading && !user) {
@@ -27,8 +28,8 @@ const Dashboard = () => {
     const fetchEmployees = async (searchTerm = '') => {
         try {
             const url = searchTerm 
-                ? `http://localhost:5000/api/employees/search?department=${searchTerm}`
-                : 'http://localhost:5000/api/employees';
+                ? `${API_URL}/api/employees/search?department=${searchTerm}`
+                : `${API_URL}/api/employees`;
             const res = await axios.get(url);
             setEmployees(res.data);
         } catch (err) {
@@ -41,7 +42,7 @@ const Dashboard = () => {
     const handleGetRecommendation = async (employeeId) => {
         setAiLoading(true);
         try {
-            const res = await axios.post('http://localhost:5000/api/ai/recommend', { employeeId });
+            const res = await axios.post(`${API_URL}/api/ai/recommend`, { employeeId });
             setRecommendation(res.data.recommendation);
         } catch (err) {
             console.error('Failed to get recommendation', err);
