@@ -71,7 +71,7 @@ const Dashboard = () => {
                                 className="btn-primary" 
                                 onClick={() => handleGetRecommendation(null)}
                                 disabled={aiLoading}
-                                style={{ background: 'linear-gradient(to right, #fde047, #f59e0b)', border: 'none', color: '#1c1917' }}
+                                style={{ background: 'linear-gradient(to right, #c084fc, #818cf8)', border: 'none', color: 'white' }}
                             >
                                 {aiLoading ? 'Analyzing...' : 'Rank All Employees with AI'}
                             </button>
