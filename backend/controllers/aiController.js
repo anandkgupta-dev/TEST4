@@ -7,11 +7,11 @@ exports.getRecommendation = async (req, res) => {
         
         let employee;
         if (employeeId) {
-            employee = await Employee.findById(employeeId);
+            employee = await Employee.findOne({ _id: employeeId, user: req.user.id });
             if (!employee) return res.status(404).json({ error: 'Employee not found' });
         } else {
             // Or get all if multiple
-            employee = await Employee.find();
+            employee = await Employee.find({ user: req.user.id });
         }
 
         const prompt = `
